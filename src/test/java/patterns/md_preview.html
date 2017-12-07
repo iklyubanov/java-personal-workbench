@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="file:/C:/Users/IVANKL~1/AppData/Local/Temp/multimarkdown_layout.css">
+    <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+    <link rel="stylesheet" href="file:/C:/Users/IVANKL~1/AppData/Local/Temp/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<div class="content">
+    <div class="page-header">overview.md</div>
+    <div class="hr"></div>
+    <h1 id="about-design-patterns"><a href="#about-design-patterns" name="about-design-patterns">About Design Patterns</a></h1>
+    <p>This Design Patterns refcard provides a quick reference to the original
+        23 Gang of Four design patterns, as listed in the book Design Patterns:
+        Elements of Reusable Object-Oriented Software. Each pattern includes
+        class diagrams, explanation, usage information, and a real world example.</p>
+    <ul>
+        <li><strong>Creational Patterns</strong>: Used to construct objects such that they can be decoupled from their implementing system.</li>
+        <li><strong>Structural Patterns</strong>: Used to form large object structures between many disparate objects.</li>
+        <li><strong>Behavioral Patterns</strong>: Used to manage algorithms, relationships, and responsibilities between objects.</li>
+        <li><strong>Object Scope</strong>: Deals with object relationships that can be changed at runtime.</li>
+        <li><strong>Class Scope</strong>: Deals with class relationships that can be changed at compile time.</li>
+    </ul>
+    <div class="hr"null>&nbsp;</div>
+    <table>
+        <thead>
+        <tr class="thead-first-child"><th align="right"> C  </th><th align="left">	Abstract Factory   	</th><th> S 	</th><th align="left">   Decorator 	</th><th align="left">   C 	</th><th align="center">   Prototype </th></tr>
+        </thead>
+        <tbody>
+        <tr class="tbody-first-child"><td align="right"> S  </td><td align="left">	Adapter             </td><td>	S   </td><td align="left">	Facade      </td><td align="left">	S   </td><td align="center">	Proxy     </td></tr>
+        <tr class="tbody-even-child"><td align="right"> S	 </td><td align="left"> Bridge               </td><td>	C 	</td><td align="left"> Factory Method</td><td align="left"> 	B 	</td><td align="center"> Observer    </td></tr>
+        <tr class="tbody-odd-child"><td align="right"> C  </td><td align="left"> Builder </td><td>	S </td><td align="left">	Flyweight </td><td align="left">	C </td><td align="center"> 	Singleton </td></tr>
+        <tr class="tbody-even-child"><td align="right">B 	</td><td align="left"> <a href="#chain-of-responsibility-object-behavioral">Chain Of Responsibility</a> 	</td><td> B </td><td align="left">	Interpreter 	</td><td align="left"> B </td><td align="center">	State </td></tr>
+        <tr class="tbody-odd-child"><td align="right">B 	</td><td align="left"> <a href="#command-object-behavioral">Command</a> 	</td><td> B </td><td align="left">	Mediator </td><td align="left">	B </td><td align="center">	Template Method </td></tr>
+        <tr class="tbody-even-child"><td align="right">S 	</td><td align="left"> Composite </td><td>	B </td><td align="left">	Memento </td><td align="left">	B </td><td align="center">	Visitor </td></tr>
+        </tbody>
+    </table>
+    <h1 id="chain-of-responsibility-object-behavioral"><a href="#chain-of-responsibility-object-behavioral" name="chain-of-responsibility-object-behavioral">Chain Of Responsibility (Object Behavioral)</a></h1>
+    <p><img src="https://dzone.com/storage/rc-covers/10609-thumb.png" alt="chain" /></p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/W3sDesign_Chain_of_Responsibility_Design_Pattern_UML.jpg" alt="che2" /></p>
+    <h2 id="purpose"><a href="#purpose" name="purpose">Purpose</a></h2>
+    <p>Gives more than one object an opportunity to handle a request by linking receiving objects together.</p>
+    <p>Or</p>
+    <p>Effectively and compactly implement the mechanism for processing the flow of events / requests / messages in systems with potentially large number of processors.</p>
+    <h3 id="use-when"><a href="#use-when" name="use-when">Use When</a></h3>
+    <ul>
+        <li>Multiple objects may handle a request and the handler doesn't have to be a specific object.</li>
+        <li>A set of objects should be able to handle a request with the handler determined at runtime.</li>
+        <li>A request not being handled is an acceptable potential outcome.</li>
+    </ul>
+    <h3 id="example"><a href="#example" name="example">Example</a></h3>
+    <p>Exception handling in some languages implements this pattern.
+        When an exception is thrown in a method the runtime checks to see if
+        the method has a mechanism to handle the exception or if it should be
+        passed up the call stack. When passed up the call stack the process
+        repeats until code to handle the exception is encountered or until
+        there are no more parent objects to hand the request to.</p>
+    <p><strong>ChainOfResponsibilityTest</strong> and <strong>LoggerChainTest</strong></p>
+    <h1 id="command-object-behavioral"><a href="#command-object-behavioral" name="command-object-behavioral">Command (Object Behavioral)</a></h1>
+    <p><img src="https://dzone.com/storage/rc-covers/10610-thumb.png" alt="command" /></p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/W3sDesign_Command_Design_Pattern_UML.jpg" alt="command2" /></p>
+    <h2 id="purpose-1"><a href="#purpose-1" name="purpose-1">Purpose</a></h2>
+    <p>Encapsulates a request allowing it to be treated as an object. This allows the request to be handled in traditionally object based relationships such as queuing and callbacks.</p>
+    <h3 id="use-when-1"><a href="#use-when-1" name="use-when-1">Use When</a></h3>
+    <ul>
+        <li>You need callback functionality.</li>
+        <li>Requests need to be handled at variant times or in variant orders.</li>
+        <li>A history of requests is needed.</li>
+        <li>The invoker should be decoupled from the object handling the invocation.</li>
+    </ul>
+    <h3 id="example-1"><a href="#example-1" name="example-1">Example</a></h3>
+    <p>Job queues are widely used to facilitate the asynchronous processing of algorithms.
+        By utilizing the command pattern the functionality to be executed can be given to
+        a job queue for processing without any need for the queue to have knowledge of
+        the actual implementation it is invoking. The command object that is enqueued implements
+        its particular algorithm within the confines of the interface the queue is expecting.</p>
+    <h4 id="gui-buttons-and-menu-items"><a href="#gui-buttons-and-menu-items" name="gui-buttons-and-menu-items"><em>GUI buttons and menu items</em></a></h4>
+    <p>In Swing and Borland Delphi programming, an Action is a command object.
+        In addition to the ability to perform the desired command, an Action may have
+        an associated icon, keyboard shortcut, tooltip text, and so on.
+        A toolbar button or menu item component may be completely initialized using
+        only the Action object.</p>
+    <h4 id="macro-recording"><a href="#macro-recording" name="macro-recording"><em>Macro recording</em></a></h4>
+    <p>If all user actions are represented by command objects, a program can
+        record a sequence of actions simply by keeping a list of the command
+        objects as they are executed. It can then &quot;play back&quot; the same actions
+        by executing the same command objects again in sequence.
+        If the program embeds a scripting engine, each command object can
+        implement a toScript() method, and user actions can then
+        be easily recorded as scripts.</p>
+    <h4 id="mobile-code"><a href="#mobile-code" name="mobile-code"><em>Mobile Code</em></a></h4>
+    <p>Using languages such as Java where code can be streamed/slurped from
+        one location to another via URLClassloaders and Codebases the commands
+        can enable new behavior to be delivered to remote locations (EJB Command, Master Worker)</p>
+    <h4 id="multi-level-undo"><a href="#multi-level-undo" name="multi-level-undo"><em>Multi-level undo</em></a></h4>
+    <p>If all user actions in a program are implemented as command objects,
+        the program can keep a stack of the most recently executed commands.
+        When the user wants to undo a command, the program simply pops the most recent command object and executes its undo() method.</p>
+    <h4 id="networking"><a href="#networking" name="networking"><em>Networking</em></a></h4>
+    <p>It is possible to send whole command objects across the network to be
+        executed on the other machines, for example player actions in computer games.</p>
+    <h4 id="parallel-processing"><a href="#parallel-processing" name="parallel-processing"><em>Parallel Processing</em></a></h4>
+    <p>Where the commands are written as tasks to a shared resource and
+        executed by many threads in parallel (possibly on remote machines -
+        this variant is often referred to as the Master/Worker pattern)</p>
+    <h4 id="progress-bars"><a href="#progress-bars" name="progress-bars"><em>Progress bars</em></a></h4>
+    <p>Suppose a program has a sequence of commands that it executes in order.
+        If each command object has a getEstimatedDuration() method,
+        the program can easily estimate the total duration. It can show a
+        progress bar that meaningfully reflects how close the program is to
+        completing all the tasks.</p>
+    <h4 id="thread-pools"><a href="#thread-pools" name="thread-pools"><em>Thread pools</em></a></h4>
+    <p>A typical, general-purpose thread pool class might have a public
+        addTask() method that adds a work item to an internal queue of tasks
+        waiting to be done. It maintains a pool of threads that execute
+        commands from the queue. The items in the queue are command objects.
+        Typically these objects implement a common interface such as
+        java.lang.Runnable that allows the thread pool to execute the
+        command even though the thread pool class itself was written
+        without any knowledge of the specific tasks for which it would be used.</p>
+    <h4 id="transactional-behavior"><a href="#transactional-behavior" name="transactional-behavior"><em>Transactional behavior</em></a></h4>
+    <p>Similar to undo, a database engine or software installer may keep
+        a list of operations that have been or will be performed.
+        Should one of them fail, all others can be reversed or discarded
+        (usually called rollback). For example, if two database tables that
+        refer to each other must be updated, and the second update fails,
+        the transaction can be rolled back, so that the first table does
+        not now contain an invalid reference.</p>
+    <h4 id="wizards"><a href="#wizards" name="wizards"><em>Wizards</em></a></h4>
+    <p>Often a wizard presents several pages of configuration for a single
+        action that happens only when the user clicks the &quot;Finish&quot; button on
+        the last page. In these cases, a natural way to separate user
+        interface code from application code is to implement the wizard using
+        a command object. The command object is created when the wizard is first displayed.
+        Each wizard page stores its GUI changes in the command object,
+        so the object is populated as the user progresses. &quot;Finish&quot; simply
+        triggers a call to execute(). This way, the command class will work.</p>
+    <blockquote>
+        <p>!  this is fucking spoiler</p>
+    </blockquote>
+</div>
+</body>
+</html>

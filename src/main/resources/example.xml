@@ -1,0 +1,268 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+			<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-85262473-3940-410c-8f22-0137efd13add">
+				<ds:SignedInfo>
+					<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+						<ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+					</ds:CanonicalizationMethod>
+					<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+					<ds:Reference URI="#id-17620b59-1aa5-47e5-8e88-c7b1c97fcb12">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<ds:DigestValue>HnKqiRAehvRuiMDdjv5sYhtVm98=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference URI="#id-91f9d878-9ecd-45dd-8e8d-160f22f24699">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<ds:DigestValue>LU0ptAAL+tTYB0Bef6ndE9M9yEk=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference URI="#id-32d88f3c-1ee9-4bc0-a246-f9437c61ef98">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<ds:DigestValue>0u5pYN78zO+ZBBhQ+ayKAtJHFXU=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference URI="#id-fa5f490c-8896-4c15-8595-a7fef558569d">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<ds:DigestValue>w938PwJ0e9q7ahGsDP2nCnHQM5k=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference URI="#id-b79faf8e-f806-43a3-a92a-845583dc4a4c">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+								<ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+							</ds:Transform>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+						<ds:DigestValue>zrMG+AvJBrKkLg9uBc1IUQsNi84=</ds:DigestValue>
+					</ds:Reference>
+				</ds:SignedInfo>
+				<ds:SignatureValue>PANjuNtEbMrtcJ0o1fYHY0sdOE2xyEgj/Vyk7qqxDve3NQdOJBuotaxc/a4VQy/JH0dknO5dUYHIHFJHeaffF54e8WkpTOhtWf/bcdI9A38JNzntF6DjVo8chYO/7E+eIcF6AE5sfUG5CfqOhJzb1WRAa5iFTOI7ZHFmvKPqHhg=</ds:SignatureValue>
+				<ds:KeyInfo Id="KI-11fac47b-774b-4f05-ad52-6c78c2f2b47c">
+					<wsse:SecurityTokenReference xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="STR-563aac98-8070-4dee-80ac-65b7fe16ecd3">
+						<ds:X509Data>
+							<ds:X509IssuerSerial>
+								<ds:X509IssuerName>CN=SUNCA,OU=JWS,O=SUN,ST=Some-State,C=AU</ds:X509IssuerName>
+								<ds:X509SerialNumber>3</ds:X509SerialNumber>
+							</ds:X509IssuerSerial>
+						</ds:X509Data>
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+			</ds:Signature>
+		</wsse:Security>
+		<Action xmlns="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-91f9d878-9ecd-45dd-8e8d-160f22f24699">http://webbroker.cetelem.ru/LoanService/createRequest</Action>
+		<MessageID xmlns="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-32d88f3c-1ee9-4bc0-a246-f9437c61ef98">urn:uuid:420fad1b-ff0f-4289-9f98-a0c93652a44e</MessageID>
+		<To xmlns="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-fa5f490c-8896-4c15-8595-a7fef558569d">https://brokertest.cetelem-bank.ru/WebBrokerDirectCredit/LoanService</To>
+		<ReplyTo xmlns="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-b79faf8e-f806-43a3-a92a-845583dc4a4c">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</ReplyTo>
+	</soap:Header>
+	<soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="id-17620b59-1aa5-47e5-8e88-c7b1c97fcb12">
+		<ns2:create xmlns:ns2="http://webbroker.cetelem.ru/">
+			<input>
+				<authInfo>
+					<pointOfSale>200055</pointOfSale>
+					<user>WebBroker</user>
+				</authInfo>
+				<parameters>
+					<loanData>
+						<cpiIncludedInCreditAmountCode/>
+						<creditProductCode>0597</creditProductCode>
+						<downpaymentRUB>7500</downpaymentRUB>
+						<durationInMonths>12</durationInMonths>
+						<good1>
+							<discountCode>Нет</discountCode>
+							<goodCostRUB>25000</goodCostRUB>
+							<goodCode>017</goodCode>
+							<goodCostKOP>0</goodCostKOP>
+							<goodCostWithDiscountRUB>0.0</goodCostWithDiscountRUB>
+							<goodDescription>Планшетный компьютер Apple iPad Air 2 Wi-Fi 9.7" 64Gb MGKM2RU/A Silver белый</goodDescription>
+						</good1>
+						<insuranceOptionCode/>
+						<lkpInsuranceOptionCode/>
+						<maxMonthlyPaymentRUB>2263</maxMonthlyPaymentRUB>
+					</loanData>
+					<personalData>
+						<advertizingAgreementCode>Нет</advertizingAgreementCode>
+						<bankAccountsData>
+							<accountCode>Нет</accountCode>
+							<plasticCardCode/>
+						</bankAccountsData>
+						<contactPerson>ЧЕРЕЗЗАБОР МУХТАР АЛИОРДЫОГЛЫ</contactPerson>
+						<creditCardAgreementCode>Нет</creditCardAgreementCode>
+						<creditCardInsuranceAgreementCode>Нет</creditCardInsuranceAgreementCode>
+						<dateOfBirthDDMMYYYY>11.11.1980</dateOfBirthDDMMYYYY>
+						<educationCode>6</educationCode>
+						<email>ELECTRONICPOCHTA84@YANDEX.RU</email>
+						<employment>
+							<durationOfWorkOnPreviousPlaceInYears>82</durationOfWorkOnPreviousPlaceInYears>
+							<holderPositionCode>48</holderPositionCode>
+							<organizationActivityCode>PR</organizationActivityCode>
+							<organizationActivitySector375PCode/>
+							<organizationActivitySectorCode>1300</organizationActivitySectorCode>
+							<organizationAddress>
+								<regionCode>77</regionCode>
+								<regionName>Москва</regionName>
+								<regionType>103</regionType>
+								<districtCode/>
+								<districtName/>
+								<index>125009</index>
+								<townCode>000</townCode>
+								<townName>Москва</townName>
+								<townType>301</townType>
+								<settlementCode/>
+								<settlementName/>
+								<settlementType/>
+								<streetName>Красная</streetName>
+								<streetType>516</streetType>
+								<house>1</house>
+								<building/>
+								<corpus/>
+								<okato/>
+							</organizationAddress>
+							<organizationName>ОАО Президенция администрата</organizationName>
+							<recordOfServiceInYears>10</recordOfServiceInYears>
+							<workFromMMYYYY>012000</workFromMMYYYY>
+						</employment>
+						<expenses>
+							<compulsoryMonthlyPaymentsInRUB>0</compulsoryMonthlyPaymentsInRUB>
+							<familyMonthlyLoansWithoutClientsPaymentsInRUB>0</familyMonthlyLoansWithoutClientsPaymentsInRUB>
+							<loansMonthlyPaymentsInRUB>0</loansMonthlyPaymentsInRUB>
+							<utilitiesMonthlyPaymentsInRUB>0</utilitiesMonthlyPaymentsInRUB>
+						</expenses>
+						<factAddress>
+							<regionCode>77</regionCode>
+							<regionName>Москва</regionName>
+							<regionType>103</regionType>
+							<districtCode/>
+							<districtName/>
+							<index>125167</index>
+							<townCode>000</townCode>
+							<townName>Москва</townName>
+							<townType>301</townType>
+							<settlementCode/>
+							<settlementName/>
+							<settlementType/>
+							<streetName>Ленинградский</streetName>
+							<streetType>519</streetType>
+							<house>56</house>
+							<building/>
+							<corpus/>
+							<dateFromMMYYYY>012000</dateFromMMYYYY>
+							<housingStatus>P</housingStatus>
+							<okato/>
+						</factAddress>
+						<firstName>ТЕСТЖББЕЙ</firstName>
+						<homePhone>
+							<code>8</code>
+							<extension>-1</extension>
+							<number/>
+						</homePhone>
+						<income>
+							<clientsAdditionalMonthlyIncomeInRUB>0</clientsAdditionalMonthlyIncomeInRUB>
+							<clientsEmploymentMonthlyIncomeInRUB>80000</clientsEmploymentMonthlyIncomeInRUB>
+							<familyMonthlyIncomeWithoutClientsIncomeInRUB>100000</familyMonthlyIncomeWithoutClientsIncomeInRUB>
+							<totalFamilyMonthlyIncomeInRUB>180000</totalFamilyMonthlyIncomeInRUB>
+						</income>
+						<lastName>ТЕСТББДГГЕЦ</lastName>
+						<localPassport>
+							<dateOfIssueDDMMYYYY>19.04.2004</dateOfIssueDDMMYYYY>
+							<issuedBy>ТП УФМС РФ ПО ОМСКОЙ ОБЛ. В ОДЕССКОМ Р-НЕ</issuedBy>
+							<number>497901</number>
+							<series>2011</series>
+							<subdivisionCode>360-007</subdivisionCode>
+						</localPassport>
+						<mailingAddressFlag>1</mailingAddressFlag>
+						<maritalStatusCode>M</maritalStatusCode>
+						<middleName>ОДОБРЕВИЧ</middleName>
+						<mobilePhone>
+							<code>8980</code>
+							<extension>-1</extension>
+							<number>2511435</number>
+						</mobilePhone>
+						<mothersMaidenName>Одобревич</mothersMaidenName>
+						<nameChangeCode>Нет</nameChangeCode>
+						<numberOfChildren>1</numberOfChildren>
+						<numberOfDependents>1</numberOfDependents>
+						<numberOfFamilyMembers>3</numberOfFamilyMembers>
+						<occupationCode>D</occupationCode>
+						<placeOfBirth>МОСКВА</placeOfBirth>
+						<previousFirstName>Нет</previousFirstName>
+						<previousLastName>Нет</previousLastName>
+						<previousMiddleName>Нет</previousMiddleName>
+						<registrationAddress>
+							<regionCode>77</regionCode>
+							<regionName>Москва</regionName>
+							<regionType>103</regionType>
+							<districtCode/>
+							<districtName/>
+							<index>125167</index>
+							<townCode>000</townCode>
+							<townName>Москва</townName>
+							<townType>301</townType>
+							<settlementCode/>
+							<settlementName/>
+							<settlementType/>
+							<streetName>Ленинградский</streetName>
+							<streetType>519</streetType>
+							<house>56</house>
+							<building/>
+							<corpus/>
+							<dateFromMMYYYY>112011</dateFromMMYYYY>
+							<okato/>
+						</registrationAddress>
+						<relativePhone>
+							<code>8926</code>
+							<extension>-1</extension>
+							<number>2556456</number>
+						</relativePhone>
+						<sexCode>MAL</sexCode>
+						<spouseDateOfBirthDDMMYYYY>31.12.1990</spouseDateOfBirthDDMMYYYY>
+						<spouseFirstName>МАМАЙ</spouseFirstName>
+						<spouseLastName>КАКАЕВ</spouseLastName>
+						<spouseMiddleName>УВАЕВИЧ</spouseMiddleName>
+						<workingPhone>
+							<code>8495</code>
+							<extension>-1</extension>
+							<number>1651651</number>
+						</workingPhone>
+						<hasCustomer2NDFLCode>Нет</hasCustomer2NDFLCode>
+						<prevPassport>
+							<dateOfIssueDDMMYYYY/>
+						</prevPassport>
+					</personalData>
+					<visualAppraisalData>
+						<suspiciousPerson>0</suspiciousPerson>
+						<suspiciousBehavior>0</suspiciousBehavior>
+						<suspiciousLoan>0</suspiciousLoan>
+						<suspiciousPersonData>0</suspiciousPersonData>
+						<thirdPersonInfluence>0</thirdPersonInfluence>
+						<suspiciousPassport>0</suspiciousPassport>
+						<suspiciousAdditionalDocuments>0</suspiciousAdditionalDocuments>
+						<suspiciousFinanceDocument>0</suspiciousFinanceDocument>
+					</visualAppraisalData>
+				</parameters>
+				<attachments>
+					<photo>
+						<content>iVBORw0KGgoAAAANSUhEUgAABKIAAAQWCAIAAACIXYe+AAAOLklEQVR4nO3BgQAAAADDoPlT3+AEVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDdEiAAHFtqOuAAAAAElFTkSuQmCC</content>
+						<extension>png</extension>
+					</photo>
+				</attachments>
+			</input>
+		</ns2:create>
+	</soap:Body>
+</soap:Envelope>
