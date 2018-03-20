@@ -1,5 +1,7 @@
 package ru.klyubanov.java_modern_concurrency.task1;
 
+import ru.klyubanov.java_modern_concurrency.utils.NumberHelper;
+
 public class Calculator implements Runnable {
     @Override
     public void run() {
@@ -10,7 +12,7 @@ public class Calculator implements Runnable {
         System.out.printf("Thread '%s': START\n",
                 Thread.currentThread().getName());
         while (current <= max) {
-            if (isPrime(current)) {
+            if (NumberHelper.isPrime(current)) {
                 numPrimes++;
             }
             current++;
@@ -19,18 +21,4 @@ public class Calculator implements Runnable {
                 Thread.currentThread().getName(), numPrimes);
     }
 
-    /**
-     * Is it prime number?
-     * */
-    private boolean isPrime(long number) {
-        if (number <= 2) {
-            return true;
-        }
-        for (long i = 2; i < number; i++) {
-            if ((number % i) == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
