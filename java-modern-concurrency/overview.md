@@ -57,12 +57,35 @@ Topics:
          interrupted() methods. The first one doesn't change the value of the
          interrupted attribute, but the second one sets it to false .
  
- ### Controlling the interruption of a thread
+ ### Controlling the interruption of a thread (Recipe 3)
  
  If the thread implements a complex algorithm divided into some methods or it has methods
  with recursive calls, we will need to use a better mechanism to control the interruption of
  the thread. Java provides the InterruptedException exception for this purpose. You can
  throw this exception when you detect the interruption of a thread and catch it in the run()
  method.
+ 
+ ### Sleeping and resuming a thread (Recipe 4)
+ 
+ Sometimes, you may be interested in pausing the execution of a thread during a determined
+ period of time. For example, a thread in a program checks the sensor state once per minute.
+ The rest of the time, it does nothing. During this time, the thread doesn't use any resources
+ of the computer. After this period is over, the thread will be ready to continue with its
+ execution when the operating system scheduler chooses it to be executed. You can use the
+ sleep() method of the Thread class for this purpose. This method receives a long number
+ as a parameter that indicates the number of milliseconds during which the thread will
+ suspend its execution. After that time, the thread continues with its execution in the next
+ instruction to the sleep() one when the JVM assigns it CPU time.
+ Another possibility is to use the sleep() method of an element of the TimeUnit
+ enumeration. This method uses the sleep() method of the Thread class to put the current
+ thread to sleep, but it receives the parameter in the unit that it represents and converts it
+ into milliseconds.
+ 
+ *The Java concurrency API has another method that makes a thread object leave the CPU. It's
+  the yield() method, which indicates to the JVM that the thread object can leave the CPU
+  for other tasks. The JVM does not guarantee that it will comply with this request. Normally,
+  it's only used for debugging purposes.*
+  
+  
  
  

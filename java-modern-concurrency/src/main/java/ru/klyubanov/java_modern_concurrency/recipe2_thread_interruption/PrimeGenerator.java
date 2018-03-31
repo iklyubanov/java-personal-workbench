@@ -11,7 +11,7 @@ public class PrimeGenerator extends Thread {
                 System.out.printf("Number %d is Prime\n", number);
             }
             if (isInterrupted()) {
-                System.out.printf("The Prime Generator has been Interrupted");
+                System.out.println("The Prime Generator has been interrupted");
                 return;
             }
             number++;
