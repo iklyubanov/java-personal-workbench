@@ -86,6 +86,38 @@ Topics:
   for other tasks. The JVM does not guarantee that it will comply with this request. Normally,
   it's only used for debugging purposes.*
   
+  ### Waiting for the finalization of a thread (Recipe 5)
+  
+  In some situations, we will have to wait for the end of the execution of a thread. For example, we may have a program that will begin
+  initializing the resources it needs before proceeding with the rest of the execution. We can
+  run initialization tasks as threads and wait for their finalization before continuing with the
+  rest of the program.
+  For this purpose, we can use the join() method of the Thread class. When we call this
+  method using a thread object, it suspends the execution of the calling thread until the object
+  that is called finishes its execution.
+  
+  *Java provides two additional forms of the join() method:
+   join (long milliseconds)
+   join (long milliseconds, long nanos)
+   In the first version of the join() method, instead of indefinitely waiting for the finalization
+   of the thread called, the calling thread waits for the milliseconds specified as the parameter
+   of the method.*
+   
+ ### Creating and running a daemon thread (Recipe 6)
+ 
+ Java has a special kind of thread called daemon thread. When daemon threads are the only
+ threads running in a program, the JVM ends the program after finishing these threads.
+ With these characteristics, daemon threads are normally used as service providers for
+ normal (also called user) threads running in the same program. They usually have an
+ infinite loop that waits for the service request or performs the tasks of a thread. A typical
+ example of these kinds of threads is the Java garbage collector.
+ 
+ *You only can call the setDaemon() method before you call the start() method. Once the
+  thread is running, you can't modify its daemon status calling the setDaemon() method. If
+  you call it, you will get an IllegalThreadStateException exception.
+  You can use the isDaemon() method to check whether a thread is a daemon thread (the
+  method returns true ) or a non-daemon thread (the method returns false ).*
+  
   
  
  

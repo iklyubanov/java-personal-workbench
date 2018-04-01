@@ -1,10 +1,18 @@
 package ru.klyubanov.java_modern_concurrency.task1;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.klyubanov.java_modern_concurrency.recipe2_thread_interruption.PrimeGenerator;
 import ru.klyubanov.java_modern_concurrency.recipe3.FileSearch;
 import ru.klyubanov.java_modern_concurrency.recipe4.ConsoleClock;
+import ru.klyubanov.java_modern_concurrency.recipe5.DataSourceLoader;
+import ru.klyubanov.java_modern_concurrency.recipe6.CleanTask;
+import ru.klyubanov.java_modern_concurrency.recipe6.Event;
+import ru.klyubanov.java_modern_concurrency.recipe6.WriteTask;
 
+import java.time.LocalTime;
+import java.util.Deque;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.TimeUnit;
 
 public class RecipeTest {
@@ -58,6 +66,53 @@ public class RecipeTest {
             System.out.println("The FileClock has been interrupted!");
         }
         clockThread.interrupt();
+    }
+
+    @Test
+    public void testRecipe5() {
+        Thread networkEmulationThread = new Thread(() -> {
+            System.out.println("Beginning connecting to the network: " + LocalTime.now());
+
+            try {
+                TimeUnit.SECONDS.sleep(6);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("connecting to the network has finished: " + LocalTime.now());
+        });
+        Thread dataSourceLoadingEmulationThread = new DataSourceLoader();
+
+        dataSourceLoadingEmulationThread.start();
+        networkEmulationThread.start();
+
+        try {
+            dataSourceLoadingEmulationThread.join();//4000
+            networkEmulationThread.join();//1000
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Main: Configuration has been loaded: " + LocalTime.now());
+    }
+
+    /**
+     * don't work properly as unit test, only work when started in the main method,
+     * because in unit tests test method isn't waiting for execution of the daemons
+     * */
+    @Ignore
+    @Test
+    public void testRecipe6() throws InterruptedException {
+        ConcurrentLinkedDeque<Event> deque = new ConcurrentLinkedDeque<>();
+
+        for (int i = 0; i < Runtime.getRuntime().availableProcessors(); i++) {
+            WriteTask writeTask = new WriteTask(deque);
+            writeTask.start();
+        }
+        CleanTask cleanTask = new CleanTask(deque);
+        cleanTask.start();
+        //
+        cleanTask.join();
     }
 
 
