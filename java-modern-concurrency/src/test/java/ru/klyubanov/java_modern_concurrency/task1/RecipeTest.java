@@ -2,6 +2,7 @@ package ru.klyubanov.java_modern_concurrency.task1;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import ru.klyubanov.java_modern_concurrency.package7.ExceptionHandler;
 import ru.klyubanov.java_modern_concurrency.recipe2_thread_interruption.PrimeGenerator;
 import ru.klyubanov.java_modern_concurrency.recipe3.FileSearch;
 import ru.klyubanov.java_modern_concurrency.recipe4.ConsoleClock;
@@ -113,6 +114,20 @@ public class RecipeTest {
         cleanTask.start();
         //
         cleanTask.join();
+    }
+
+    @Test
+    public void testRecipe7() {
+        class Task implements Runnable {
+            @Override
+            public void run() {
+                int numero=Integer.parseInt("TTT");
+            }
+        }
+        Task task = new Task();
+        Thread thread = new Thread(task);
+        thread.setUncaughtExceptionHandler(new ExceptionHandler());
+        thread.start();
     }
 
 

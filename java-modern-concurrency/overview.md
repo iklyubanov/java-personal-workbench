@@ -118,6 +118,39 @@ Topics:
   You can use the isDaemon() method to check whether a thread is a daemon thread (the
   method returns true ) or a non-daemon thread (the method returns false ).*
   
-  
+  ### Processing uncontrolled exceptions in a thread (Recipe 7)
  
+ Java provides a mechanism to capture and process exceptions. There are
+ exceptions that must be captured or re-thrown using the throws clause of a method. These
+ exceptions are called checked exceptions. There are exceptions that don't have to be
+ specified or caught. These are unchecked exceptions:
+ * Checked exceptions: These must be specified in the throws clause of a method
+ or caught inside them, for example, IOException or
+ ClassNotFoundException .
+ * Unchecked exceptions: These don't need to be specified or caught, for example,
+ NumberFormatException . 
+ When a checked exception is thrown inside the run() method of a thread object, we have to
+ catch and treat them because the run() method doesn't accept a throws clause. When an
+ unchecked exception is thrown inside the run() method of a thread object, the default
+ behavior is to write the stack trace in the console and exit the program.
+ Fortunately, Java provides us with a mechanism to catch and treat unchecked exceptions
+ thrown in a thread object to avoid ending the program.
  
+ *The Thread class has another method related to the process of uncaught exceptions. It's the
+ static method setDefaultUncaughtExceptionHandler() that establishes an exception
+ handler for all the thread objects in the application.
+ When an uncaught exception is thrown in the thread, the JVM looks for three possible
+ handlers for this exception.
+ First it looks for the uncaught exception handler of the thread objects. 
+ If this handler doesn't exist, the JVM looks for the uncaught exception handler of
+ ThreadGroup. If this method doesn't exist, the JVM looks for the default uncaught
+ exception handler. If none of the handlers exits, the JVM writes the stack trace of the exception in the console
+ and ends the execution of the Thread that had thrown the exception.*
+ 
+ ### Using thread local variables (Recipe 8)
+ 
+ Sometimes, you will be interested in having an attribute that won't be shared among all the
+ threads that run the same object. The Java Concurrency API provides a clean mechanism
+ called thread-local variables with very good performance. They have some disadvantages
+ as well. They retain their value while the thread is alive. This can be problematic in
+ situations where threads are reused.
