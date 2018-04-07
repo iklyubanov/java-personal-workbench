@@ -1,4 +1,4 @@
-package ru.klyubanov.java_modern_concurrency.recipe2_thread_interruption;
+package ru.klyubanov.java_modern_concurrency.recipe2;
 
 import static ru.klyubanov.java_modern_concurrency.utils.NumberHelper.isPrime;
 

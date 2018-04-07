@@ -2,8 +2,8 @@ package ru.klyubanov.java_modern_concurrency.task1;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import ru.klyubanov.java_modern_concurrency.package7.ExceptionHandler;
-import ru.klyubanov.java_modern_concurrency.recipe2_thread_interruption.PrimeGenerator;
+import ru.klyubanov.java_modern_concurrency.recipe7.ExceptionHandler;
+import ru.klyubanov.java_modern_concurrency.recipe2.PrimeGenerator;
 import ru.klyubanov.java_modern_concurrency.recipe3.FileSearch;
 import ru.klyubanov.java_modern_concurrency.recipe4.ConsoleClock;
 import ru.klyubanov.java_modern_concurrency.recipe5.DataSourceLoader;
@@ -12,7 +12,6 @@ import ru.klyubanov.java_modern_concurrency.recipe6.Event;
 import ru.klyubanov.java_modern_concurrency.recipe6.WriteTask;
 
 import java.time.LocalTime;
-import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +36,7 @@ public class RecipeTest {
     public void testRecipe3() {
         FileSearch searcher = new FileSearch("/home/ivan/",
                 "Joel2.djv");
-        Thread thread=new Thread(searcher, "FileSearch");
+        Thread thread = new Thread(searcher, "FileSearch");
         thread.start();
 
         try {
@@ -100,7 +99,7 @@ public class RecipeTest {
     /**
      * don't work properly as unit test, only work when started in the main method,
      * because in unit tests test method isn't waiting for execution of the daemons
-     * */
+     */
     @Ignore
     @Test
     public void testRecipe6() throws InterruptedException {
@@ -121,7 +120,7 @@ public class RecipeTest {
         class Task implements Runnable {
             @Override
             public void run() {
-                int numero=Integer.parseInt("TTT");
+                int numero = Integer.parseInt("TTT");
             }
         }
         Task task = new Task();

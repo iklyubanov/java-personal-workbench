@@ -154,3 +154,18 @@ Topics:
  called thread-local variables with very good performance. They have some disadvantages
  as well. They retain their value while the thread is alive. This can be problematic in
  situations where threads are reused.
+ 
+ *The thread-local class also provides the remove() method that deletes the value stored in a
+  thread-local variable for the thread that it's calling.
+  The Java Concurrency API includes the InheritableThreadLocal class that provides
+  inheritance of values for threads created from a thread. If thread A has a value in a thread-
+  local variable and it creates another thread B , then thread B will have the same value as
+  thread A in the thread-local variable. You can override the childValue() method that is
+  called to initialize the value of the child thread in the thread-local variable. It receives the
+  value of the parent thread as a parameter in the thread-local variable.*
+  
+   ### Grouping threads and processing uncontrolled exceptions in a group of threads(Recipe 9)
+   
+   Java provides the ThreadGroup class to work with a groups of threads. A ThreadGroup
+   object can be formed by thread objects and another ThreadGroup object, generating a tree
+   structure of threads.

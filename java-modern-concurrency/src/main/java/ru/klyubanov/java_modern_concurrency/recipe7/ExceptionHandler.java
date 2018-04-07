@@ -1,4 +1,4 @@
-package ru.klyubanov.java_modern_concurrency.package7;
+package ru.klyubanov.java_modern_concurrency.recipe7;
 
 public class ExceptionHandler implements Thread.UncaughtExceptionHandler {
 

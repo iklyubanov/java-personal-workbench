@@ -1,4 +1,4 @@
-package ru.klyubanov.java_modern_concurrency.package8;
+package ru.klyubanov.java_modern_concurrency.recipe8;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
