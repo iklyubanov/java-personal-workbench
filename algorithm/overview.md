@@ -8,3 +8,4 @@ Calculate and print the sum of the elements in an array, keeping in mind that so
 5. _SquareMatrixMission_ and _testDiagonalDifference()_ is the solution for _Diagonal Difference task._
 Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 
+6. _Plus Minus task_.
