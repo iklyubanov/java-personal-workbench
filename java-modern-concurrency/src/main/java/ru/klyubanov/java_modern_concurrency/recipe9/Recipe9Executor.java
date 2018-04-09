@@ -3,8 +3,8 @@ package ru.klyubanov.java_modern_concurrency.recipe9;
 public class Recipe9Executor {
     public static void main(String[] args) {
         int numberOfThreads = 2 * Runtime.getRuntime().availableProcessors();
-        MyThreadGroup threadGroup=new MyThreadGroup("MyThreadGroup");
-        Task task=new Task();
+        MyThreadGroup threadGroup = new MyThreadGroup("MyThreadGroup");
+        Task task = new Task();
         for (int i = 0; i < numberOfThreads; i++) {
             Thread t = new Thread(threadGroup, task);
             t.start();

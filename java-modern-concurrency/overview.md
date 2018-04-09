@@ -169,3 +169,22 @@ Topics:
    Java provides the ThreadGroup class to work with a groups of threads. A ThreadGroup
    object can be formed by thread objects and another ThreadGroup object, generating a tree
    structure of threads.
+   
+   ThreadGroup have uncaughtException method which might be overriden for specific handling of 
+   uncaught exceptions in inner threads of the thread group
+   
+   ### Creating threads through a factory (Recipe 10)
+   
+   The factory pattern is one of the most used design patterns in the object-oriented
+   programming world. It is a creational pattern, and its objective is to develop an object
+   whose mission should be this: creating other objects of one or several classes. With this, if
+   you want to create an object of one of these classes, you could just use the factory instead of
+   using a new operator.
+   With this factory, we centralize the creation of objects with some advantages:
+   * It's easy to change the class of the objects created or the way you'd create them.
+   * It's easy to limit the creation of objects for limited resources; for example, we can
+   * only have n objects of a given type.
+   * It's easy to generate statistical data about the creation of objects.
+   Java provides an interface, the ThreadFactory interface, to implement a thread object
+   factory. Some advanced utilities of the Java concurrency API use thread factories to create
+   threads.
