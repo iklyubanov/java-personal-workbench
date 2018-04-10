@@ -11,5 +11,13 @@
 
     <artifactId>java-modern-concurrency</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.rainerhahnekamp</groupId>
+            <artifactId>sneakythrow</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

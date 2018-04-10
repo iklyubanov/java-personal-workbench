@@ -188,3 +188,82 @@ Topics:
    Java provides an interface, the ThreadFactory interface, to implement a thread object
    factory. Some advanced utilities of the Java concurrency API use thread factories to create
    threads.
+   
+   ## Basic Thread Synchronization (Chapter 2)
+   
+   One of the most common situations in concurrent programming occurs when more than
+   one execution thread shares a resource. In a concurrent application, it is normal for multiple
+   threads to read or write the same data structure or have access to the same file or database
+   connection. These shared resources can provoke error situations or data inconsistency, and
+   we have to implement mechanisms to avoid these errors. These situations are called race
+   conditions and they occur when different threads have access to the same shared resource
+   at the same time. Therefore, the final result depends on the order of the execution of
+   threads, and most of the time, it is incorrect. You can also have problems with change
+   visibility. So if a thread changes the value of a shared variable, the changes would only be
+   written in the local cache of that thread; other threads will not have access to the change.
+   The solution for these problems lies in the concept of critical section. A critical section is a
+   block of code that accesses a shared resource and can't be executed by more than one thread
+   at the same time.
+    Java (and almost all programming languages) offers synchronization mechanisms. When a thread wants access to a critical
+   section, it uses one of these synchronization mechanisms to find out whether there is any
+   other thread executing the critical section. If not, the thread enters the critical section. If yes,
+   the thread is suspended by the synchronization mechanism until the thread that is currently
+   executing the critical section ends it. When more than one thread is waiting for a thread to
+   finish the execution of a critical section, JVM chooses one of them and the rest wait for their
+   turn. This chapter presents a number of recipes that will teach you how to use the two basic
+   synchronization mechanisms offered by the Java language:
+   * The synchronized keyword
+   * The Lock interface and its implementations
+   
+   ### Synchronizing a method (Recipe 10)
+   
+   When you use the synchronized keyword with a method, the object reference is implicit.
+   When you use the synchronized keyword in one or more methods of an object, only one
+   execution thread will have access to all these methods. If another thread tries to access any
+   method declared with the synchronized keyword of the same object, it will be suspended
+   until the first thread finishes the execution of the method. In other words, every method
+   declared with the synchronized keyword is a critical section, and Java only allows the
+   execution of one of the critical sections of an object at a time. In this case, the object
+   reference used is the own object, represented by the this keyword. Static methods have a
+   different behavior. Only one execution thread will have access to one of the static methods
+   declared with the synchronized keyword, but a different thread can access other non-
+   static methods of an object of that class. You have to be very careful with this point because
+   two threads can access two different synchronized methods if one is static and the other is
+   not. If both methods change the same data, you can have data inconsistency errors. In this
+   case, the object reference used is the class object.
+   When you use the synchronized keyword to protect a block of code, you must pass an
+   object reference as a parameter. Normally, you will use the this keyword to reference the
+   object that executes the method, but you can use other object references as well. Normally,
+   these objects will be created exclusively for this purpose. You should keep the objects used
+   for synchronization private. For example, if you have two independent attributes in a class
+   shared by multiple threads, you must synchronize access to each variable; however, it
+   wouldn't be a problem if one thread is accessing one of the attributes and the other
+   accessing a different attribute at the same time. Take into account that if you use the own
+   object (represented by the this keyword), you might interfere with other synchronized
+   code (as mentioned before, the this object is used to synchronize the methods marked with
+   the synchronized keyword).
+   
+   * The synchronized keyword penalizes the performance of the application, so you must
+     only use it on methods that modify shared data in a concurrent environment. If you have
+     multiple threads calling a synchronized method, only one will execute them at a time
+     while the others will remain waiting. If the operation doesn't use the synchronized
+     keyword, all the threads can execute the operation at the same time, reducing the total
+     execution time. If you know that a method will not be called by more than one thread, don't
+     use the synchronized keyword. Anyway, if the class is designed for multithreading
+     access, it should always be correct. You must promote correctness over performance. Also,
+     you should include documentation in methods and classes in relation to their thread safety.
+     You can use recursive calls with synchronized methods. As the thread has access to the
+     synchronized methods of an object, you can call other synchronized methods of that
+     object, including the method that is being executed. It won't have to get access to the
+     synchronized methods again.
+      We can use the synchronized keyword to protect access to a block of code instead of an
+      entire method. We should use the synchronized keyword in this way to protect access to
+      shared data, leaving the rest of the operations out of this block and obtaining better
+      performance of the application. The objective is to have the critical section (the block of code
+      that can be accessed only by one thread at a time) as short as possible. Also, avoid calling
+      blocking operations (for example, I/O operations) inside a critical section. We have used the
+      synchronized keyword to protect access to the instruction that updates the number of
+      persons in the building, leaving out the long operations of the block that don't use shared
+      data. When you use the synchronized keyword in this way, you must pass an object
+      reference as a parameter. Only one thread can access the synchronized code (blocks or
+      methods) of this object.*
