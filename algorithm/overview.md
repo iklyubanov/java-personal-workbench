@@ -11,3 +11,8 @@ Given a square matrix, calculate the absolute difference between the sums of its
 6. _Plus Minus task_.
 Given an array of integers, calculate the fractions of its elements that are positive, negative, and are zeros. 
 Print the decimal value of each fraction on a new line.
+You must print the following  lines:
+
+A decimal representing of the fraction of positive numbers in the array compared to its size.
+A decimal representing of the fraction of negative numbers in the array compared to its size.
+A decimal representing of the fraction of zeros in the array compared to its size.

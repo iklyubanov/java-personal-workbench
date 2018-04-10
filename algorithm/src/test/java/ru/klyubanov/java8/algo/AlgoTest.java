@@ -24,6 +24,18 @@ public class AlgoTest {
         Assert.assertEquals(15, SquareMatrixMission.diagonalDifference(ar));
     }
 
+    @Test
+    public void testPlusMinusFractions() {
+        int[] ar = {-3, 0 ,9, -2, 0};
+        PlusMinusFractions.Counter counter = PlusMinusFractions.plusMinus(ar);
+        Assert.assertEquals(1, counter.getPCount());
+        Assert.assertEquals(2, counter.getMCount());
+        Assert.assertEquals(2, counter.getZCount());
+        Assert.assertEquals(0.2, (double)counter.getPCount() / ar.length, 2);
+        Assert.assertEquals(0.4, (double)counter.getMCount()/ ar.length, 2);
+        Assert.assertEquals(0.4, (double)counter.getZCount()/ ar.length, 2);
+    }
+
     static long aVeryBigSum(int n, long[] ar) {
         Optional<BigInteger> opInt = Arrays.stream(ar).mapToObj(i -> new BigInteger(String.valueOf(i))).reduce(BigInteger::add);
         return opInt.map(BigInteger::longValue).orElse(0L);
