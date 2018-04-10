@@ -9,3 +9,5 @@ Calculate and print the sum of the elements in an array, keeping in mind that so
 Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 
 6. _Plus Minus task_.
+Given an array of integers, calculate the fractions of its elements that are positive, negative, and are zeros. 
+Print the decimal value of each fraction on a new line.
