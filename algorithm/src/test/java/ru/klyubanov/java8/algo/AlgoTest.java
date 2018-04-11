@@ -2,6 +2,7 @@ package ru.klyubanov.java8.algo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import ru.klyubanov.java8.algo.warmup.Staircase;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -34,6 +35,18 @@ public class AlgoTest {
         Assert.assertEquals(0.2, (double)counter.getPCount() / ar.length, 2);
         Assert.assertEquals(0.4, (double)counter.getMCount()/ ar.length, 2);
         Assert.assertEquals(0.4, (double)counter.getZCount()/ ar.length, 2);
+    }
+
+    @Test
+    public void testStaircase() {
+        String expected = "     #\n" +
+                "    ##\n" +
+                "   ###\n" +
+                "  ####\n" +
+                " #####\n" +
+                "######";
+
+        Assert.assertEquals(expected, Staircase.printStaircase(6));
     }
 
     static long aVeryBigSum(int n, long[] ar) {

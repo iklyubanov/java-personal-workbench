@@ -16,3 +16,12 @@ You must print the following  lines:
 A decimal representing of the fraction of positive numbers in the array compared to its size.
 A decimal representing of the fraction of negative numbers in the array compared to its size.
 A decimal representing of the fraction of zeros in the array compared to its size.
+
+7. _Staircase_
+   #
+  ##
+ ###
+####
+Observe that its base and height are both equal to n, and the image is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+Write a program that prints a staircase of size n. 
