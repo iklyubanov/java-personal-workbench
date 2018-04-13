@@ -7,7 +7,6 @@ public class MiniMaxSolution {
     public static long[] miniMaxSum(int[] arr) {
         long[] sums = new long[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            int finalI = i;
             sums[i] = Arrays.stream(arr).mapToLong(e -> e).sum() - arr[i];
         }
 
