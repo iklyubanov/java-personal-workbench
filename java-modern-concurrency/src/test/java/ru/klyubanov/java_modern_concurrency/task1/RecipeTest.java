@@ -2,7 +2,6 @@ package ru.klyubanov.java_modern_concurrency.task1;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import ru.klyubanov.java_modern_concurrency.recipe7.ExceptionHandler;
 import ru.klyubanov.java_modern_concurrency.recipe2.PrimeGenerator;
 import ru.klyubanov.java_modern_concurrency.recipe3.FileSearch;
 import ru.klyubanov.java_modern_concurrency.recipe4.ConsoleClock;
@@ -10,6 +9,7 @@ import ru.klyubanov.java_modern_concurrency.recipe5.DataSourceLoader;
 import ru.klyubanov.java_modern_concurrency.recipe6.CleanTask;
 import ru.klyubanov.java_modern_concurrency.recipe6.Event;
 import ru.klyubanov.java_modern_concurrency.recipe6.WriteTask;
+import ru.klyubanov.java_modern_concurrency.recipe7.ExceptionHandler;
 
 import java.time.LocalTime;
 import java.util.concurrent.ConcurrentLinkedDeque;

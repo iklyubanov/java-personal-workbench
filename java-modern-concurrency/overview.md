@@ -215,7 +215,7 @@ Topics:
    * The synchronized keyword
    * The Lock interface and its implementations
    
-   ### Synchronizing a method (Recipe 10)
+   ### Synchronizing a method (Recipe 11)
    
    When you use the synchronized keyword with a method, the object reference is implicit.
    When you use the synchronized keyword in one or more methods of an object, only one
@@ -267,3 +267,17 @@ Topics:
       data. When you use the synchronized keyword in this way, you must pass an object
       reference as a parameter. Only one thread can access the synchronized code (blocks or
       methods) of this object.*
+      
+      ### Using conditions in synchronized code (Recipe 12)
+      
+      Java provides the wait() , notify() , and notifyAll()
+      methods implemented in the Object class. A thread can call the wait() method inside a
+      synchronized block of code. If it calls the wait() method outside a synchronized block
+      of code, JVM throws an IllegalMonitorStateException exception. When the thread
+      calls the wait() method, JVM puts the thread to sleep and releases the object that controls
+      the synchronized block of code that it's executing and allows other threads to execute
+      other blocks of synchronized code protected by this object. To wake up the thread, you
+      must call the notify() or notifyAll() methods inside a block of code protected by the
+      same object.
+      
+      
