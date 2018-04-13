@@ -3,6 +3,7 @@ package ru.klyubanov.java8.algo;
 import org.junit.Assert;
 import org.junit.Test;
 import ru.klyubanov.java8.algo.impl.StudentsGradeRounder;
+import ru.klyubanov.java8.algo.warmup.MiniMaxSolution;
 import ru.klyubanov.java8.algo.warmup.Staircase;
 
 import java.math.BigInteger;
@@ -54,6 +55,47 @@ public class AlgoTest {
     public void testGradedStudents() {
         int[] ar = {73, 67 ,38, 33};
         Assert.assertArrayEquals(new int[]{75, 67 ,40, 33}, StudentsGradeRounder.gradingStudents(ar));
+    }
+
+    @Test
+    public void testMiniMaxSum() {
+        int[] ar = {1, 2 , 3, 4, 5};
+        long[] sums = MiniMaxSolution.miniMaxSum(ar);
+        Assert.assertEquals(10, Arrays.stream(sums).min().getAsLong());
+        Assert.assertEquals(14, Arrays.stream(sums).max().getAsLong());
+    }
+
+    @Test
+    public void testMiniMaxSum2() {
+        int[] ar = {1, 2 , 3, 4, 0, 5};
+        long[] sums = MiniMaxSolution.miniMaxSum(ar);
+        Assert.assertEquals(10, Arrays.stream(sums).min().getAsLong());
+        Assert.assertEquals(15, Arrays.stream(sums).max().getAsLong());
+    }
+
+    @Test
+    public void testMiniMaxSum3() {
+        int[] ar = {1, 2 , 3, 4, 5, 5};
+        long[] sums = MiniMaxSolution.miniMaxSum(ar);
+        Assert.assertEquals(10, Arrays.stream(sums).min().getAsLong());
+        Assert.assertEquals(19, Arrays.stream(sums).max().getAsLong());
+    }
+
+    @Test
+    public void testMiniMaxSum4() {
+        int[] ar = {256741038, 623958417, 467905213, 714532089, 938071625};
+        long[] sums = MiniMaxSolution.miniMaxSum(ar);
+        //
+        Assert.assertEquals(2063136757, Arrays.stream(sums).min().getAsLong());
+        Assert.assertEquals(2744467344L, Arrays.stream(sums).max().getAsLong());
+    }
+
+    @Test
+    public void testMiniMaxSum5() {
+        int[] ar = {5, 5 , 5, 5, 5};
+        long[] sums = MiniMaxSolution.miniMaxSum(ar);
+        Assert.assertEquals(20, Arrays.stream(sums).min().getAsLong());
+        Assert.assertEquals(20, Arrays.stream(sums).max().getAsLong());
     }
 
     static long aVeryBigSum(int n, long[] ar) {
