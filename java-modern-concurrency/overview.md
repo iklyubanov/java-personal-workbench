@@ -280,4 +280,53 @@ Topics:
       must call the notify() or notifyAll() methods inside a block of code protected by the
       same object.
       
+      ### Synchronizing a block of code with a lock (Recipe 13)
       
+      Java provides another mechanism for synchronizing blocks of code. It's a more powerful
+      and flexible mechanism than the _synchronized_ keyword. It's based on the _Lock_ (of the
+      java.util.concurrent.locks package) interface and classes that implement it (as
+      ReentrantLock ). This mechanism presents some advantages, which are as follows:
+      
+      * It allows you to structure synchronized blocks in a more flexible way. With the
+      synchronized keyword, you only have control over a synchronized block of
+      code in a structured way. However, the Lock interface allows you to get more
+      complex structures to implement your critical section.
+      * The Lock interface provides additional functionalities over the synchronized
+      keyword. One of the new functionalities is implemented by the tryLock()
+      method. This method tries to get control of the lock, and if it can't, because it's
+      used by another thread, it returns false . With the synchronized keyword, if
+      thread (A) tries to execute a synchronized block of code when thread (B) is
+      executing it, thread (A) is suspended until thread (B) finishes the execution of the
+      synchronized block. With lock, you can execute the tryLock() method. This
+      method returns a Boolean value indicating whether there is another thread
+      running the code protected by this lock.
+      * The ReadWriteLock interface allows a separation of read and write operations
+      with multiple readers and only one modifier.
+      * The Lock interface offers better performance than the synchronized keyword.
+      
+      The constructor of the ReentrantLock class admits a boolean parameter named fair ;
+      this parameter allows you to control its behavior. The false value is the default value and
+      it's called the non-fair mode. In this mode, if some threads are waiting for a lock and the
+      lock has to select one of these threads to get access to the critical section, it randomly selects
+      anyone of them. The true value is called the fair mode. In this mode, if some threads are
+      waiting for a lock and the lock has to select one to get access to a critical section, it selects
+      the thread that has been waiting for the longest period of time. Take into account that the
+      behavior explained previously is only used in the lock() and unlock() methods. As the
+      tryLock() method doesn't put the thread to sleep if the Lock interface is used, the fair
+      attribute doesn't affect its functionality.
+      
+      The Lock interface (and the ReentrantLock class) includes another method to get control
+      of the lock. It's the tryLock() method. The biggest difference with the lock() method is
+      that this method, if the thread that uses it can't get control of the Lock interface, returns
+      immediately and doesn't put the thread to sleep. It returns the boolean value true if the
+      thread gets control of the lock and false if not. You can also pass a time value and a
+      TimeUnit object to indicate the maximum amount of time the thread will wait to get the
+      lock. If the time elapses and the thread doesn't get the lock, the method will return the false
+      value. The TimeUnit class is an enumeration with the following constants: DAYS , HOURS ,
+      MICROSECONDS , MILLISECONDS , MINUTES , NANOSECONDS , and SECONDS ; these indicate the
+      units of time we pass to a method.
+      The ReentrantLock class also allows the use of recursive calls. When a thread has control
+      of a lock and makes a recursive call, it continues with the control of the lock, so the calling
+      to the lock() method will return immediately and the thread will continue with the
+      execution of the recursive call. Moreover, we can also call other methods. You should call
+      the unlock() method as many times as you called the lock() method in your code.
