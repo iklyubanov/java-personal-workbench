@@ -330,3 +330,20 @@ Topics:
       to the lock() method will return immediately and the thread will continue with the
       execution of the recursive call. Moreover, we can also call other methods. You should call
       the unlock() method as many times as you called the lock() method in your code.
+      
+      ### Synchronizing data access with read/write locks (Recipe 14)
+      
+      One of the most significant improvements offered by locks is the ReadWriteLock interface
+      and the ReentrantReadWriteLock class, the unique class that implements that interface.
+      This class has two locks: one for read operations and one for write operations. There can be
+      more than one thread using read operations simultaneously, but only one thread can use
+      write operations. If a thread is doing a write operation, other threads can't write or read.
+        The lock used in read operations is obtained with the readLock() method declared in the ReadWriteLock interface. 
+      This lock is an object that implements the Lock interface, so we can use the lock() , unlock() , and tryLock()
+      methods. The lock used in write operations is obtained with the writeLock() method
+      declared in the ReadWriteLock interface. This lock is also an object that implements the
+      Lock interface, so we can use the lock() , unlock() , and tryLock() methods. It is the
+      responsibility of the programmer to ensure correct use of these locks, using them for the
+      same purposes for which they were designed. When you get the read lock of a Lock
+      interface, you can't modify the value of the variable. Otherwise, you probably will have
+      data errors related to inconsistency.
