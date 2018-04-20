@@ -347,3 +347,12 @@ Topics:
       same purposes for which they were designed. When you get the read lock of a Lock
       interface, you can't modify the value of the variable. Otherwise, you probably will have
       data errors related to inconsistency.
+      
+      ### Using multiple conditions in a lock (Recipe 15)
+      
+      A lock may be associated with one or more conditions. These conditions are declared in the
+      Condition interface. The purpose of these conditions is to allow threads to have control of
+      a lock and check whether a condition is true or not. If it's false , the thread will be
+      suspended until another thread wakes it up. The Condition interface provides the
+      mechanisms to suspend a thread and wake up a suspended thread.
+      
