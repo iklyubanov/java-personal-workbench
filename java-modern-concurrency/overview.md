@@ -356,3 +356,63 @@ Topics:
       suspended until another thread wakes it up. The Condition interface provides the
       mechanisms to suspend a thread and wake up a suspended thread.
       
+      ### Advanced locking with the StampedLock class(Recipe 16)
+      
+      The StampedLock class provides a special kind of lock that is different from the ones
+      provided by the Lock or ReadWriteLock interfaces. In fact, this class doesn't implement
+      these interfaces, but the functionality it provides is very similar.
+      The first point to note about this kind of lock is that its main purpose is to be a helper class
+      to implement thread-safe components, so its use will not be very common in normal
+      applications.
+      The most important features of StampedLock locks are as follows:
+      
+      * You can obtain control of the lock in three different modes:
+        * *Write*: In this mode, you get exclusive access to the lock. No other
+      thread can have control of the lock in this mode.
+        * *Read*: In this mode, you have non-exclusive access to the lock.
+      There can be other threads that have access to the lock in this mode
+      or the Optimistic Read mode.
+        * *Optimistic Read*: Here, the thread doesn't have control over the
+      block. Other threads can get control of the lock in write mode.
+      When you get a lock in the Optimistic Read mode and you want to
+      access the shared data protected by it, you will have to check
+      whether you can access them or not using the validate()
+      method.
+      * The StampedLock class provides methods to:
+        * Acquire control over the lock in one of the previous modes. If the
+      methods (_readLock() , writeLock() ,
+      readLockInterruptibly()_) are unable to get control of the lock,
+      the current thread is suspended until it gets the lock.
+        * Acquire control over the lock in one of the previous modes. If the
+      methods (_tryOptimisticRead() , tryReadLock() ,
+      tryWriteLock()_) are unable to get control of the lock, they return
+      a special value to indicate this circumstance.
+        * Convert one mode into another, if possible. If not, the methods
+      (_asReadLock() , asWriteLock() , asReadWriteLock()_) return a
+      special value.
+        * Release the lock.
+        
+       * All these methods return a long value called stamp that we need to use to work
+        with the lock. If a method returns zero, it means it tried to get a lock but it
+        couldn't.
+       * A StampedLock lock is not a reentrant lock, such as the Lock and
+        ReadWriteLock interfaces. If you call a method that tries to get the lock again, it
+        may be blocked and you'll get a deadlock.
+       * It does not have the notion of ownership. They can be acquired by one thread and
+        released by another.
+       * Finally, it doesn't have any policy about the next thread that will get control of
+        the lock.
+
+The StampedLock class has other methods:
+    * _tryReadLock()_ and _tryReadLock(long time, TimeUnit unit)_ : These
+    methods try to acquire the lock in read mode. If they can't, the first version is
+    returned immediately and the second one waits for the amount of time specified
+    in the parameter. These methods also return a stamp that must be checked
+    ( stamp != 0 ).
+    * _isReadLocked()_ and _isWriteLocked()_ : These methods are returned if the
+    lock is currently held in read or write mode, respectively.
+    * _tryConvertToReadLock(long stamp) , tryConvertToWriteLock(long
+    stamp) , and tryConvertToOptimisticRead(long stamp)_ : These methods
+    try to convert the stamp passed as a parameter to the mode indicated in the name
+    of the method. If they can, they return a new stamp. If not, they return 0 .
+    * _unlock(long stamp)_ : This releases the corresponding mode of the lock.
