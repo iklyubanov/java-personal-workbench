@@ -416,3 +416,74 @@ The StampedLock class has other methods:
     try to convert the stamp passed as a parameter to the mode indicated in the name
     of the method. If they can, they return a new stamp. If not, they return 0 .
     * _unlock(long stamp)_ : This releases the corresponding mode of the lock.
+    
+## Thread Synchronization Utilities (Chapter 3)
+
+* Controlling concurrent access to one or more copies of a resource
+* Waiting for multiple concurrent events
+* Synchronizing tasks at a common point
+* Running concurrent-phased tasks
+* Controlling phase change in concurrent-phased tasks
+* Exchanging data between concurrent tasks
+* Completing and linking tasks asynchronously
+
+High-level mechanisms of chapter 3:
+* *Semaphores*: A semaphore is a counter that controls access to one or more shared
+resources. This mechanism is one of the basic tools of concurrent programming
+and is provided by most programming languages. Semaphores are generic synchronization mechanisms 
+that you can use to protect any critical section in any problem.
+* *CountDownLatch*: The CountDownLatch class is a mechanism provided by the
+Java language that allows a thread to wait for the finalization of multiple
+operations.
+* *CyclicBarrier*: The CyclicBarrier class is another mechanism provided by the
+Java language that allows the synchronization of multiple threads at a common
+point.
+* *Phaser*: The Phaser class is another mechanism provided by the Java language
+that controls the execution of concurrent tasks divided in phases. All the threads
+must finish one phase before they can continue with the next one.
+* *Exchanger*: The Exchanger class is another mechanism provided by the Java
+language that provides a point of data interchange between two threads.
+* *CompletableFuture*: The CompletableFuture class provides a mechanism
+where one or more tasks can wait for the finalization of another task that will be
+explicitly completed in an asynchronous way in future. This class was introduced
+in Java 8 and has introduced new methods in Java 9.
+
+### Controlling concurrent access to one or more copies of a resource (Recipe 17)
+
+The concept of a semaphore was introduced by Edsger Dijkstra in 1965
+and was used for the first time in the THEOS operating system.
+When a thread wants to access one of the shared resources, it must first acquire the
+semaphore. If the internal counter of the semaphore is greater than 0, the semaphore
+decrements the counter and allows access to the shared resource. A counter bigger than 0
+implies that there are free resources that can be used, so the thread can access and use one
+of them.
+Otherwise, if the counter is 0, the semaphore puts the thread to sleep until the counter is
+greater than 0. A value of 0 in the counter means all the shared resources are used by other
+threads, so the thread that wants to use one of them must wait until one is free.
+When the thread has finished using the shared resource, it must release the semaphore so
+that another thread can access the resource. This operation increases the internal counter of
+the semaphore.
+
+The Semaphore class has three additional versions of the acquire() method:
+* *acquireUninterruptibly()* : The acquire() method, when the internal
+counter of the semaphore is 0 , blocks the thread until the semaphore is released.
+During this period, the thread may be interrupted; if this happens, the method
+will throw an InterruptedException exception. This version of the acquire
+operation ignores the interruption of the thread and doesn't throw any
+exceptions.
+* *tryAcquire()* : This method tries to acquire the semaphore. If it can, it returns
+the true value. But if it can't, it returns false instead of being blocked and waits
+for the release of the semaphore. It's your responsibility to take correct action
+based on the return value.
+* *tryAcquire(long timeout, TimeUnit unit)*: This method is equivalent to
+the previous one, but it waits for the semaphore for the period of time specified in
+the parameters. If the period of time ends and the method hasn't acquired the
+semaphore, it will return false .
+
+The acquire() , acquireUninterruptibly() , tryAcquire() , and release() methods
+have an additional version, which has an int parameter. This parameter represents the
+number of permits the thread that uses them wants to acquire or release, in other words, the
+number of units that this thread wants to delete or add to the internal counter of the
+semaphore. In the case of the acquire() , acquireUninterruptibly() , and tryAcquire() methods,
+if the value of the counter is less than the number passed as parameter value, the thread will
+be blocked until the counter gets the same value or a greater one.
