@@ -487,3 +487,31 @@ number of units that this thread wants to delete or add to the internal counter 
 semaphore. In the case of the acquire() , acquireUninterruptibly() , and tryAcquire() methods,
 if the value of the counter is less than the number passed as parameter value, the thread will
 be blocked until the counter gets the same value or a greater one.
+
+### Waiting for multiple concurrent events (Recipe 18)
+
+The Java concurrency API provides a class that allows one or more threads to wait until a
+set of operations are made. It's called the CountDownLatch class. This class is initialized
+with an integer number, which is the number of operations the threads are going to wait
+for. When a thread wants to wait for the execution of these operations, it uses the await()
+method. This method puts the thread to sleep until the operations are completed. When one
+of these operations finishes, it uses the countDown() method to decrement the internal
+counter of the CountDownLatch class. When the counter arrives at 0 , the class wakes up all
+the threads that were sleeping in the await() method.
+
+The CountDownLatch class has three basic elements:
+ * The initialization value that determines how many events the CountDownLatch
+object waits for
+ * The await() method, called by the threads that wait for the finalization of all the
+events
+ * The countDown() method, called by the events when they finish their execution
+When you create a CountDownLatch object, it uses the constructor's parameter to initialize
+an internal counter. Every time a thread calls the countDown() method, the
+CountDownLatch object decrements the internal counter in one unit. When the internal
+counter reaches 0, the CountDownLatch object wakes up all the threads that were waiting
+in the await() method.
+There's no way to re-initialize the internal counter of the CountDownLatch object or modify
+its value. Once the counter is initialized, the only method you can use to modify its value is
+the countDown() method explained earlier. When the counter reaches 0 , all the calls to the
+await() method are returned immediately and all subsequent calls to the countDown()
+method have no effect.
