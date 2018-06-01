@@ -515,3 +515,21 @@ its value. Once the counter is initialized, the only method you can use to modif
 the countDown() method explained earlier. When the counter reaches 0 , all the calls to the
 await() method are returned immediately and all subsequent calls to the countDown()
 method have no effect.
+
+### Synchronizing tasks in a common point (Recipe 19)
+
+The Java concurrency API provides a synchronizing utility that allows the synchronization
+of two or more threads at a determined point. It's the CyclicBarrier class. This class is
+similar to the CountDownLatch, but it presents some differences that make it a more powerful class.
+The CyclicBarrier class is initialized with an integer number, which is the number of
+threads that will be synchronized at a determined point. When one of these threads arrives
+at the determined point, it calls the await() method to wait for the other threads. When the
+thread calls this method, the CyclicBarrier class blocks the thread that is sleeping until
+the other threads arrive. When the last thread calls the await() method of the
+CyclicBarrier object, it wakes up all the threads that were waiting and continues with its
+job.
+One interesting advantage of the CyclicBarrier class is that you can pass an additional
+Runnable object as an initialization parameter, and the CyclicBarrier class executes this
+object as a thread when all the threads arrive at the common point. This characteristic
+makes this class adequate for parallelization of tasks using the divide and conquer
+programming technique.
