@@ -1,6 +1,7 @@
 package ru.klyubanov.java8.algo;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.klyubanov.java8.algo.impl.StudentsGradeRounder;
 import ru.klyubanov.java8.algo.warmup.MiniMaxSolution;
@@ -17,6 +18,7 @@ public class AlgoTest {
     public void testVeryBigSum() {
         int n = 5;
         long[] ar = {1000000001, 1000000002 ,1000000003, 1000000004, 1000000005};
+        Arrays.asList(ar).sort();
         Assert.assertEquals(5000000015L, aVeryBigSum(n, ar));
         Assert.assertEquals(5000000015L, aVeryBigSum2(n, ar));
     }
@@ -73,6 +75,7 @@ public class AlgoTest {
         Assert.assertEquals(15, Arrays.stream(sums).max().getAsLong());
     }
 
+    @Ignore
     @Test
     public void testMiniMaxSum3() {
         int[] ar = {1, 2 , 3, 4, 5, 5};

@@ -11,6 +11,7 @@
     <modules>
         <module>java-modern-concurrency</module>
         <module>algorithm</module>
+        <module>patterns</module>
     </modules>
     <properties>
         <JAVA_8_HOME>C:\JDK\jdk-8u91-windows-x64</JAVA_8_HOME>

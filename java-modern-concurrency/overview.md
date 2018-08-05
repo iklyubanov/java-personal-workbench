@@ -533,3 +533,14 @@ Runnable object as an initialization parameter, and the CyclicBarrier class exec
 object as a thread when all the threads arrive at the common point. This characteristic
 makes this class adequate for parallelization of tasks using the divide and conquer
 programming technique.
+
+### Running concurrent-phased tasks (Recipe 20)
+
+One of the most complex and powerful functionalities offered by the Java concurrency API
+is the ability to execute concurrent-phased tasks using the Phaser class. This mechanism is
+useful when we have some concurrent tasks divided into steps. The _Phaser_ class provides
+us with a mechanism to synchronize threads at the end of each step, so no thread will start
+with the second step until all the threads have finished the first one.
+As with other synchronization utilities, we have to initialize the Phaser class with the
+number of tasks that participate in the synchronization operation, but we can dynamically
+modify this number by either increasing or decreasing it.

@@ -1,6 +1,7 @@
 package ru.klyubanov.java_modern_concurrency.ch1.recipe1;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.FileWriter;
@@ -19,6 +20,7 @@ public class Task1Test {
                 Thread.MAX_PRIORITY);
     }
 
+    @Ignore
     @Test
     public void test() {
         Thread[] threads = new Thread[10];
