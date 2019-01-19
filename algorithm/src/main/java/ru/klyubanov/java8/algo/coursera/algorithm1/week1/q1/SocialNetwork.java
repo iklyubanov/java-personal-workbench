@@ -10,6 +10,7 @@ public class SocialNetwork {
             instance = new SocialNetwork();
             instance.init(n, m);
         }
+        return instance;
     }
 
     private void init(int n, int m) {

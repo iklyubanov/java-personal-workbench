@@ -9,6 +9,7 @@ import ru.klyubanov.java8.algo.warmup.Staircase;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.OptionalLong;
 
@@ -18,7 +19,7 @@ public class AlgoTest {
     public void testVeryBigSum() {
         int n = 5;
         long[] ar = {1000000001, 1000000002 ,1000000003, 1000000004, 1000000005};
-        Arrays.asList(ar).sort();
+        Arrays.asList(ar).sort(Collections.reverseOrder());
         Assert.assertEquals(5000000015L, aVeryBigSum(n, ar));
         Assert.assertEquals(5000000015L, aVeryBigSum2(n, ar));
     }

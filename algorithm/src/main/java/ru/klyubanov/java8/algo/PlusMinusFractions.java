@@ -7,8 +7,20 @@ import java.util.Arrays;
 public class PlusMinusFractions {
 
     @Data
-    static class Counter {
+    public static class Counter {
         private int pCount = 0, mCount = 0, zCount = 0;
+
+        public int getPCount() {
+            return pCount;
+        }
+
+        public int getMCount() {
+            return mCount;
+        }
+
+        public int getZCount() {
+            return zCount;
+        }
     }
 
     static Counter plusMinus(int[] arr) {
